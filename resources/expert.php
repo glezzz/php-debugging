@@ -113,7 +113,7 @@ function copyright(int $year) {
     return "&copy; $year BeCode";
 }
 //print the copyright
-copyright(date('Y'));
+echo copyright(intval(date('Y')));      // we put echo to print and use intval() to get the integer value
 
 new_exercise(8);
 function login(string $email, string $password) {
