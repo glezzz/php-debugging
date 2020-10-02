@@ -11,8 +11,8 @@ declare(strict_types=1);
 // Below we're defining a function, but it doesn't work when we run it.
 // Look at the error you get, read it and it should tell you the issue...,
 // sometimes, even your IDE can tell you what's wrong
-echo "Exercise 1 starts here:";
 
+                                    //removed echo
 $x = '1';
 function new_exercise($x) {       // $x is undefined so we need to define it
     $block = "<br/><hr/><br/><br/>Exercise $x starts here:<br/>";
@@ -163,7 +163,8 @@ new_exercise(10);
 $areTheseFruits = ['apple', 'bear', 'beef', 'banana', 'cherry', 'tomato', 'car'];
 $validFruits = ['apple', 'pear', 'banana', 'cherry', 'tomato'];
 //from here on you can change the code
-for($i=0; $i <= count($areTheseFruits); $i++) {
+$count = count($areTheseFruits);
+for($i=0; $i < $count; $i++) {
     if(!in_array($areTheseFruits[$i], $validFruits)) {
         unset($areTheseFruits[$i]);
     }
