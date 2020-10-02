@@ -13,12 +13,13 @@ declare(strict_types=1);
 // sometimes, even your IDE can tell you what's wrong
 echo "Exercise 1 starts here:";
 
+$x = '1';
 function new_exercise($x) {       // $x is undefined so we need to define it
     $block = "<br/><hr/><br/><br/>Exercise $x starts here:<br/>";
     echo $block;
 
 }
-new_exercise();
+new_exercise($x);
 
 
 new_exercise(2);
@@ -75,19 +76,18 @@ new_exercise(6);
 // The fixed code should echo the following at the bottom:
 // Here is the name: $name - $name2
 // $name variables are decided as seen in the code, fix all the bugs whilst keeping the functionality!
-$arr = [];
 
+$arr = [];
 
 function combineNames($str1 = "", $str2 = "") {
     $params = [$str1, $str2];
     foreach($params as $param) {
         if ($param == "") {
-            $param = randomHeroName();
+            $param = randomHeroName($params);
         }
     }
-    echo implode($params, " - ");
+    echo implode(" - ", $params);
 }
-
 
 function randomGenerate($arr, $amount) {
     for ($i = $amount; $i > 0; $i--) {
@@ -100,7 +100,7 @@ function randomGenerate($arr, $amount) {
 function randomHeroName()
 {
     $hero_firstnames = ["captain", "doctor", "iron", "Hank", "ant", "Wasp", "the", "Hawk", "Spider", "Black", "Carol"];
-    $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"]
+    $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"];
     $heroes = [$hero_firstnames, $hero_lastnames];
     $randname = $heroes[rand(0,count($heroes))][rand(0, 10)];
 
